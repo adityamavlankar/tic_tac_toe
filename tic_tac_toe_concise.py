@@ -5,7 +5,6 @@ Assumption 2: A player sticks with his/her symbol, either "x" or "o" throughout 
 '''
 
 from tkinter import *
-import tkinter.messagebox
 
 grid_size = 3
 buttons = [[None for x in range(grid_size)] for x in range(grid_size)]
