@@ -8,7 +8,7 @@ Our son, Aneesh, was introduced to playing tic-tac-toe in school. Naturally, he 
 
 At this point, the words of my Python instructor (five bucks<sup>**</sup> for guessing his name which starts with R) came to mind: "There has to be a better way!"
 
-####<sup>**</sup>metaphorical five bucks :)
+#### <sup>**</sup>metaphorical five bucks :)
 
 I took a crack at writing some Python code and I must say I am quite happy with what 100 (ish) lines of Python code could do for Aneesh and me. Some screenshots of the game:
 
