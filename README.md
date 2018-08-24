@@ -10,7 +10,7 @@ At this point, the words of my Python instructor (five bucks<sup>**</sup> for gu
 
 ##### <sup>**</sup>metaphorical five bucks :)
 
-I took a crack at writing some Python code and I must say I am quite happy with what 100 (ish) lines of Python code could do for Aneesh and me. Some screenshots of the game:
+I took a crack at writing some Python code and I must say I am quite happy with what [100 (ish) lines of Python code](./tic_tac_toe_concise.py) could do for Aneesh and me. Some screenshots of the game:
 
 ![alt text](images/tie.png)
 ![alt text](images/win_o.png)
