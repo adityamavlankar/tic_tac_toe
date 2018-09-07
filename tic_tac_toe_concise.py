@@ -33,7 +33,7 @@ def show_message(title, label, button_text):
     top_window.title(title)
     Label(top_window, text=label).grid()
     Button(top_window, text=button_text, command=lambda:reset_game(top_window)).grid()
-    top_window.protocol("WM_DELETE_WINDOW", func=lambda:reset_game(top_window))
+    top_window.protocol(name="WM_DELETE_WINDOW", func=lambda:reset_game(top_window))
 
 def check_list_for_same_symbol(list_buttons, symbol):
     '''
@@ -41,9 +41,8 @@ def check_list_for_same_symbol(list_buttons, symbol):
     If yes, highlight those buttons and show message about the win.
     '''
     global game_over
-    for button in list_buttons:
-        if button["text"] != symbol:
-            return False
+    if any(button["text"] != symbol for button in list_buttons):
+        return False
     for button in list_buttons:
         button.configure(highlightbackground=win_highlight_color[symbol])
     show_message('Game Over', f'Player {ui_symbol_unicode[symbol]}, you just won a game!', 'Ok')
@@ -72,10 +71,8 @@ def check_tie():
     '''
     Check whether we hit a tie situation. Also provide indication in UI as such.
     '''
-    for button_row in buttons:
-        for button in button_row:
-            if button["text"] == " ":
-                return
+    if any(buttons[i][j]["text"] == " " for i in range(grid_size) for j in range(grid_size)):
+        return
     show_message('Game Over', 'You fought well, it is a tie!', 'Ok')
     game_over = True
 
