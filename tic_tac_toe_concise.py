@@ -10,8 +10,9 @@ grid_size = 3
 buttons = [[None for x in range(grid_size)] for x in range(grid_size)]
 win_highlight_color = {"x" : '#3E2129', "o" : '#214129'}
 ui_symbol_unicode = {"x" : '\N{multiplication x}', "o" : '\N{large circle}'}
+list_alternating_symbols = ["x", "o"]
 button_highlight_default = '#99AA99'
-turn = True
+turn = False
 game_over = False
 
 def reset_game(top_window):
@@ -41,7 +42,7 @@ def check_list_for_same_symbol(list_buttons, symbol):
     If yes, highlight those buttons and show message about the win.
     '''
     global game_over
-    if any(button["text"] != symbol for button in list_buttons):
+    if any(button["text"] != ui_symbol_unicode[symbol] for button in list_buttons):
         return False
     for button in list_buttons:
         button.configure(highlightbackground=win_highlight_color[symbol])
@@ -83,15 +84,13 @@ def checker(button):
     if game_over:
         return
     global turn
-    if button["text"] == " " and turn:
-        button["text"] = "x"
-        turn = False
-    elif button["text"] == " " and not turn:
-        button["text"] = "o"
-        turn = True
 
-    check_winner("x")
-    check_winner("o")
+    if button["text"] == " ":
+        button["text"] = ui_symbol_unicode[list_alternating_symbols[int(turn)]]
+        turn = not turn
+
+    for symbol in list_alternating_symbols:
+        check_winner(symbol)
     if not game_over:
         check_tie()
 
