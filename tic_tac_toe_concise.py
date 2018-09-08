@@ -5,12 +5,13 @@ Assumption 2: A player sticks with his/her symbol, either "x" or "o" throughout 
 '''
 
 from tkinter import *
+from collections import namedtuple
 
 grid_size = 3
 buttons = [[None for x in range(grid_size)] for x in range(grid_size)]
-win_highlight_color = {"x" : '#3E2129', "o" : '#214129'}
-ui_symbol_unicode = {"x" : '\N{multiplication x}', "o" : '\N{large circle}'}
-list_alternating_symbols = ["x", "o"]
+Tic_Tac_Toe_Symbol = namedtuple('Tic_Tac_Toe_Symbol', ['base_symbol', 'ui_symbol_unicode', 'win_highlight_color'])
+tuple_alternating_symbols = (Tic_Tac_Toe_Symbol("x", '\N{multiplication x}', '#3E2129'), 
+    Tic_Tac_Toe_Symbol("o", '\N{large circle}', '#214129'))
 button_highlight_default = '#99AA99'
 turn = False
 game_over = False
@@ -42,11 +43,11 @@ def check_list_for_same_symbol(list_buttons, symbol):
     If yes, highlight those buttons and show message about the win.
     '''
     global game_over
-    if any(button["text"] != ui_symbol_unicode[symbol] for button in list_buttons):
+    if any(button["text"] != symbol.ui_symbol_unicode for button in list_buttons):
         return False
     for button in list_buttons:
-        button.configure(highlightbackground=win_highlight_color[symbol])
-    show_message('Game Over', f'Player {ui_symbol_unicode[symbol]}, you just won a game!', 'Ok')
+        button.configure(highlightbackground=symbol.win_highlight_color)
+    show_message('Game Over', f'Player {symbol.ui_symbol_unicode}, you just won a game!', 'Ok')
     game_over = True
     return True
 
@@ -86,10 +87,10 @@ def checker(button):
     global turn
 
     if button["text"] == " ":
-        button["text"] = ui_symbol_unicode[list_alternating_symbols[int(turn)]]
+        button["text"] = tuple_alternating_symbols[int(turn)].ui_symbol_unicode
         turn = not turn
 
-    for symbol in list_alternating_symbols:
+    for symbol in tuple_alternating_symbols:
         check_winner(symbol)
     if not game_over:
         check_tie()
