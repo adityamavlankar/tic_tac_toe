@@ -16,3 +16,13 @@ I took a crack at writing some Python code and I must say I am quite happy with 
 ![alt text](images/tie.png)
 ![alt text](images/win_o.png)
 ![alt text](images/win_x.png)
+
+Some Python constructs used in [code](./tic_tac_toe_concise.py):
+  * List comprehension
+  * _namedtuple_
+  * _lambda_
+  * _any(condition generator-expression)_
+  * f Strings
+  * int(bool) for calculating index
+
+  
