@@ -23,6 +23,6 @@ Some Python constructs/features used in [code](./tic_tac_toe_concise.py):
   * _lambda_
   * _any(condition generator-expression)_
   * f Strings
-  * int(bool) for calculating index
+  * _int(bool)_ for calculating index
   * Elegant support of unicode characters by name
 
