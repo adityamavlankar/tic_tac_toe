@@ -1,7 +1,7 @@
 # tic_tac_toe
 Interactive 2 player tic tac toe game
 
-* Tested on Python 3.6 but I expect it to run on Python 3.0 and above.
+* Tested on Python 3.6; I expect it to run on Python 3.6 and above.
 
 Our son, Aneesh, was introduced to playing tic-tac-toe in school. Naturally, he wanted to play a game or two at home, so I asked him to make few "grids" on paper. The grids drawn by a four year old turned out to not have the best alignment, size, etc. 
 
